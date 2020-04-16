@@ -10,7 +10,8 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "cdStart": "gulp copy_data_json && cd dist && node main.js",
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"npm run cdStart\"",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -24,9 +25,11 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "gulp": "^4.0.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
@@ -48,7 +51,9 @@
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.2"
   },
   "jest": {
     "moduleFileExtensions": [

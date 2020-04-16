@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ToDoController } from './controllers/to-do/to-do.controller';
+import { ToDoService } from './services/to-do/to-do.service';
+import { FileOperationsService } from './services/file-operations/file-operations.service';
+import { UuidService } from './services/uuid/uuid.service';
+import { ValidationService } from './services/validation/validation.service';
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [ToDoController],
+  providers: [ToDoService, FileOperationsService, UuidService, ValidationService],
 })
 export class AppModule {}
